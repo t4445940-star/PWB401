@@ -6,7 +6,7 @@ if (apply) {
     var date = document.getElementById("date");
     var events = document.querySelectorAll(".event-item");
 
-    function doFilter() {
+    function AF() {
         var usercat = cat.value;
         var userplace = place.value;
         var userdate = date.value;
@@ -26,13 +26,13 @@ if (apply) {
         });
     }
 
-    apply.addEventListener("click", doFilter);
+    apply.addEventListener("click", AF);
 
     // هاد مشان اذا اليوزر كبس enter يشتغل البحث لانه بدونه ما بيشتغل البحث الا اذا اليوزر كبس الزر
     search.addEventListener("keypress", function (e) {
         if (e.key === "Enter") {
             e.preventDefault();
-            doFilter();
+            AF();
         }
     });
 }
