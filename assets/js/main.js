@@ -6,7 +6,7 @@ if (apply) {
     var date = document.getElementById("date");
     var events = document.querySelectorAll(".event-item");
 
-    apply.addEventListener("click", function () {
+    function doFilter() {
         var usercat = cat.value;
         var userplace = place.value;
         var userdate = date.value;
@@ -24,6 +24,16 @@ if (apply) {
                 ev.style.display = "none";
             }
         });
+    }
+
+    apply.addEventListener("click", doFilter);
+
+    // هاد مشان اذا اليوزر كبس enter يشتغل البحث لانه بدونه ما بيشتغل البحث الا اذا اليوزر كبس الزر
+    search.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            doFilter();
+        }
     });
 }
 var category = document.getElementById('category');
